@@ -5,9 +5,15 @@
 .homee{
     background-color:whitesmoke;
 }
+
 .bdy{
     
-    background-image: url("aks1.jpeg"); 
+    background-image: url("https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"); 
+ 
+}
+.heightt{
+     height: auto ;
+  width: auto;
 }
 .bluee{
     background-color:darkblue;
@@ -45,4 +51,7 @@
 .bot2{
     background-color: rgb(212, 26, 212);
     border-radius: 20%;
+}
+.bor{
+    border-radius: 60%;
 }

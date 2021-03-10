@@ -1,14 +1,14 @@
-<div class=" container text-center bg bg-success border border-dark my-3">
+<div class=" container text-center blu border border-dark my-3">
 <h1><%= @album.title %></h1>
 
 <p><%= @album.description %></p>
 <div class="my-2">
 <% @album.images.each do |image|%>
-  <%= image_tag(image ,style: "width:10%") %>
+  <%= image_tag(image ,style: "width:10%") %> 
   <% if user_signed_in?%>
   <%= link_to "Delete", delete_upload_album_url(@album ,upload_id: image.id),
                   method: :delete,
-                  data: { confirm: "Are you sure?" } ,class: "btn btn-danger mt-2"%><%end%>
+                  data: { confirm: "Are you sure?" } ,class: "btn btn-danger bor mt-2"%><%end%>
 <% end%>
 </div>
 
