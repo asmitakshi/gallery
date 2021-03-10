@@ -1,0 +1,43 @@
+<% if user_signed_in?%>
+<h2 class="text-light">
+Hello <%= current_user.email%>
+</h2>
+<% else%>
+<h2 class="text-light">
+hello stranger</h2>
+<%end%>
+<h1 class="text-center text-light ">Published Albums</h1>
+<div class="row opa row-cols-1 my-2 blackk row-cols-md-3 g-4 text-center">
+  <% @albums.each do |album| %>
+  <% if album.published? %>
+    <div class="col  blackk">
+      <div class="card  blu mx-2 mb-3 text-center" >
+     <h5> <%=  album.title  %> </h5> <br>
+         <div><%= link_to image_tag(url_for(album.images.first),class:"card-img-top",style:'width:30%') %>
+         </div>
+        <div class="card-body">
+          <div class=" text-dark text-decoration-none">
+      
+             
+             <%=  album.description %> <br>
+             <div class="text-muted">
+        <%= album.all_tags %> <br>
+        <div>
+        <%= link_to "view" ,album_path(album) ,class: "btn bot2 opanav bot " %>
+        </div>
+        </div>
+          </div>
+          <% if user_signed_in?%> 
+             <%= link_to "Edit", edit_album_path(album) ,class: "btn btn-success mt-2" %>
+             <%= link_to "Destroy", album_path(album),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } ,class: "btn btn-success mt-2"%><%end%>
+         </div>
+  
+      </div>
+
+    </div>
+    <%end%>
+ <% end %>
+</div>
+<%= link_to "New Album", new_album_path ,class:"btn btn-danger btn-lg my-2 mx-2 text-center" %>

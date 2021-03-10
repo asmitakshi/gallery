@@ -1,0 +1,57 @@
+
+<form class=" d-flex justify-content-center mt-5">
+      <%= search_form_for @q do |f| %>
+    <%= f.search_field :title_cont  ,placeholder: "search album.." %>
+ <!-- <%= f.search_field :tags_name_cont  %>  -->
+  
+ 
+  <%= f.submit class: "btn btn-outline-success"%>
+ 
+  <%end%>
+
+      </form>
+
+<% if user_signed_in?%>
+<h2 class="fst-italic">
+Hello <%= current_user.email %>
+</h2>
+<%end%>
+<div class="card homee opa blackk">
+<h1 class="text-center text-light fnt ">My Albums</h1>
+<div class="card-body opanav">
+<div class="row row-cols-1 text-light row-cols-md-3 g-4 text-center">
+  <% @albums.each do |album| %>
+  <%if album.user==current_user%>
+    <div class="col ">
+      <div class="card blu  text-light text-center" >
+      <%= album.title %><br>
+         <div><%=link_to image_tag(url_for(album.images.first),class:"card-img-top",style:'width:30%'),album %>
+         </div>
+        <div class="card-body text-light">
+          <div class="  text-decoration-none">
+      
+             
+             <%= album.description %><br>
+             <%= album.all_tags %>
+       
+          </div>  
+                          
+          <%= link_to "Edit", edit_album_path(album) ,class: "btn btn-success mt-2" %>
+             <%= link_to "Destroy", album_path(album),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } ,class: "btn btn-success mt-2"%>
+         </div>
+  
+      </div>
+
+    </div>
+    <%end%>
+ <% end %>
+</div>
+</div>
+</div>
+
+
+
+
+<%= link_to "New Album", new_album_path ,class:"btn btn-danger my-2 mx-2 text-center" %>

@@ -1,0 +1,48 @@
+.bckground{
+ color:rgb(95, 78, 141);
+ background-color: burlywood;
+}
+.homee{
+    background-color:whitesmoke;
+}
+.bdy{
+    
+    background-image: url("aks1.jpeg"); 
+}
+.bluee{
+    background-color:darkblue;
+}
+.sign{
+    background-color: whitesmoke;
+}
+.blackk{
+    background-color: rgb(20, 20, 20);
+}
+.redd{
+    background-color: crimson;
+}
+.redd2{
+    background-color: crimson;
+}
+.bluee2{
+    background-color: rgb(122, 7, 122);
+}.fnt{
+    font-family: 'Lora', serif;
+}
+.opa{
+    opacity: 0.7;
+}
+.opanav{
+    opacity: 1 !important;
+}
+.blu{
+    background-color: rgb(132, 132, 194);
+}
+.bot{
+    background-color: brown;
+    border-radius: 60%;
+}
+.bot2{
+    background-color: rgb(212, 26, 212);
+    border-radius: 20%;
+}

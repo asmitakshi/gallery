@@ -1,0 +1,45 @@
+<div class="container text-center blackk text-light  mt-2">
+<%= form_with model: @album do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% @album.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %><br>
+    <% @album.errors.full_messages_for(:description).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  
+<div>
+<%= form.label :images %><br>
+<%= form.file_field :images , multiple: true %>
+</div>
+
+<div>
+<div>
+    <%= form.label :published %>
+    <%= form.check_box :published %>
+    </div>
+
+<%= form.number_field :user_id ,id: :album_user_id,class: "form-control",value: current_user.id ,type: :hidden%>
+</div>
+
+<div class="large-10 large-centered columns">
+      <%= form.text_field :all_tags, placeholder: "Tags separated with comma" %>
+    </div>
+
+
+ 
+    <%= form.submit  class: "btn btn-danger" %>
+ 
+<% end %>
+
+
+
+</div>
